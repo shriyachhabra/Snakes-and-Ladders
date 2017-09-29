@@ -1,0 +1,297 @@
+.CodeMirror{
+    /*width: 300px;*/
+    border: solid;
+    border-color: black;
+    width: 550px;
+    height:100px;
+    margin-left:222px;
+
+}
+#text{
+    width: 200px;
+    height:100px;
+    /*margin-top: 50px;*/
+    margin-left:222px;
+    height: 200px;
+    border-radius: 2px;
+    z-index: 3;
+    font-family: "Calisto MT";
+}
+#loader{
+    /*display: none;*/
+    margin-top: 10px;
+    margin-left: 20px;
+    height: 100px;
+}
+#send{
+    cursor: pointer;
+    font-size: 20px;
+    border:solid;
+    border-radius: 4px;
+    color: cadetblue;
+    margin-left: 60px;
+}
+#send:hover{
+background: cadetblue;
+color: white;
+}
+
+
+#response{
+    border-radius: 2px;
+    /*position:fixed;*/
+    margin-top: 5px;
+  /*margin-left: 198px;*/
+    display: inline-block;
+    background: white;
+    width: 120px;height: 100px
+}
+
+#input{
+    margin-top: 5px;
+    background: white;
+    width: 120px;
+    height: 100px;
+}
+#language{
+    width:150px;
+    font-size: large;
+    cursor: pointer;
+    margin-left: 0px;
+    height: 30px;
+    border: solid;
+    border-color: cadetblue;
+    border-radius: 5px;
+}
+#language:hover{
+    cursor: pointer;
+}
+#quess{
+    display:inline-block;
+    padding: 6px;
+    font-size: x-large;
+    font-family:"Arial Rounded MT Bold";
+    background: white;
+    width: 550px;
+    background: beige;
+    border-radius: 10px;
+    border: solid;
+    border-color: cadetblue;
+    margin-left: 2px;
+}
+#quessHint{
+    font-style: italic;
+    font-size: medium;
+    margin-left: 70px;
+}
+#question{
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 8px;
+    background: beige;
+    border-radius: 5px;
+    border-style: solid;
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+    border-left-width: 20px;
+    font-family:Forte ;
+    border-color: cadetblue;
+    color: cadetblue;
+    font-size: xx-large;
+}
+#wholeQues{
+    margin-left: 25px;
+}
+#answ{
+    border-radius: 2px;
+    padding-left:10px;
+    font-style: oblique;
+    border-bottom-color: white ;
+    width: 550px;
+    background: white;
+    color:darkorchid;
+    margin-left: 222px;
+}
+#time{
+
+    color: white;
+    font-size: xx-large;
+    border-color: darkcyan;
+    border-style: groove;
+    border-width: 2.5px;
+    border-radius: 5px;
+
+    /*background:mintcream;*/
+    /*color:cadetblue;*/
+    /*border-radius: 5px;*/
+    /*border: solid;*/
+  position: relative;
+    padding-right: 10px;
+    padding-left: 10px;
+    /*margin-left: 200px;*/
+    /*background: white;*/
+    width: 75px;
+    padding-top: 10px;
+    height: 45px;
+    font-size: xx-large;
+
+}
+#score{
+
+    color: white;
+    font-size: xx-large;
+    border-color: darkcyan;
+    border-style: groove;
+    border-width: 2.5px;
+    border-radius: 5px;
+
+    /*background:mintcream;*/
+    /*color:cadetblue;*/
+    /*border-radius: 5px;*/
+    /*border: solid;*/
+    position: relative;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-left: 8px;
+    /*background: white;*/
+    width: 75px;
+    padding-top: 10px;
+    height: 45px;
+    font-size: xx-large;
+    text-align: center;
+}
+#scoreText{
+    margin-left: 200px;
+    padding-top: 10px;
+    font-family: Forte;
+    color: beige;
+    font-size: xx-large;
+
+}
+
+
+.output{
+    padding: 2px;
+
+    border: solid;
+    border-radius: 5px;
+    size: 50px;
+    background: beige;
+    color: cadetblue;
+    font-size: x-large;
+    /*margin-left: 200px;*/
+}
+
+#mylang{
+    margin-left: 222px;
+}
+#select{
+    border-radius: 2px;
+    color: cadetblue;
+    font-family: Forte;
+    font-size: larger;
+    padding-top: 4px;
+    text-align: center;
+    width: 410px;
+    background:white;
+}
+#out{
+    position: absolute;
+    margin-left: 340px;
+}
+#submit1{
+
+    padding: 5px;
+    cursor: pointer;
+    color: cadetblue;
+    border-color: cadetblue;
+    text-shadow: 1px 1px 1px;
+    border-radius: 7px;
+    font-family:"Copperplate Gothic Bold";
+    font-size: 23px;
+    border: solid;
+    border-width: 3px;
+    background: white;
+    margin-left: 1020px;
+    margin-top: 30px;
+
+}
+#submit1:active{
+    box-shadow: 0px 0px 0px;
+}
+#submit1:hover{
+    background: cadetblue;
+    color: white;
+}
+#hourglass{
+    height: 60px;
+    margin-left: 210px;
+}
+
+/*for showing in ppt*/
+#white-background{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: whitesmoke;
+    opacity: 0.5;
+    z-index: 9999;
+}
+
+#Dbox{
+    position: fixed;
+    z-index: 9999;
+    display: none;
+    height: 500px;
+    width: 750px;
+    background-image: url("../images/box prompt.jpg");
+    background-size: cover;
+
+    margin-top: 5px;
+    margin-left: 250px;
+
+    border-style: double;
+    box-shadow: white;
+    border-radius: 7px;
+    border-color: white;
+    border-width: 7px;
+}
+#b{
+    background: white;
+    border-radius: 2px;
+    border-style: solid;
+    float: right;
+}
+
+#right{
+    display: none;
+    color:aqua;
+    font-size: xx-large;
+    margin-top: 15px;
+    font-family: "Comic Sans MS";
+    margin-left: 230px;
+}
+
+#guy
+{
+
+    height: 85px;
+    margin-top: 230px;
+    margin-left: 170px;
+}
+#nxt{
+    cursor: pointer;
+    float: right;
+    margin-right: 50px;
+    height: 30px;
+    background: white;
+    color:cadetblue ;
+    border-style: none;
+    border-radius: 4px;
+}
+#ito{
+    margin-left: 270px;
+}

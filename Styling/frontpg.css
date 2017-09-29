@@ -1,0 +1,27 @@
+.log
+{
+    text-align: center;
+    font-size: larger;
+    margin-left: 450px;
+    border-radius:5px ;
+    border-bottom-style:ridge;
+
+}
+#inp {
+    margin-top: 300px;
+}
+#sub{
+    cursor: pointer;
+    background: white;
+    color: cadetblue;
+    font-size: x-large;
+    margin-left: 520px;
+    border-radius: 5px;
+    border: solid;
+    border-color: cadetblue;
+
+}
+#sub:active{
+    background: cadetblue;
+    color: white;
+}

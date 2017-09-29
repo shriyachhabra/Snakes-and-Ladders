@@ -1,0 +1,27 @@
+#ready{
+
+    font-size: 60px ;
+    color: red;
+    font-family: "Calisto MT";
+
+}
+.di{
+    margin-top: 70px;
+    margin-left: 740px;
+}
+#play{
+    cursor: pointer;
+    background: white;
+    color: cadetblue;
+    font-size: x-large;
+    margin-top: 350px;
+    margin-left: 600px;
+    border-radius: 5px;
+    border: solid;
+    border-color: cadetblue;
+
+}
+#play:active{
+    background: cadetblue;
+    color: white;
+}

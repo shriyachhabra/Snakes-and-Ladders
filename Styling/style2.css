@@ -1,0 +1,84 @@
+#bg{
+    background-image: url("../images/ques.jpg");
+    background-size: cover;
+}
+
+#sub{
+    height: 50px;
+    width: 100px;
+    background-color: white;
+}
+
+
+#Dbox{
+    position: fixed;
+    z-index: 9999;
+    display: none;
+    height: 500px;
+    width: 750px;
+    background-image: url("../images/box prompt.jpg");
+    background-size: cover;
+
+    margin-top: 10px;
+    margin-left: 250px;
+
+    border-style: double;
+    box-shadow: white;
+    border-radius: 7px;
+    border-color: white;
+    border-width: 7px;
+}
+
+#b{
+    background: white;
+    border-radius: 2px;
+    border-style: solid;
+    float: right;
+}
+
+#guy
+{
+    height: 75px;
+    margin-top: 260px;
+    margin-left: 150px;
+}
+#nxt{
+    cursor: pointer;
+    float: right;
+    margin-right: 30px;
+    height: 30px;
+    background: white;
+    color:cadetblue ;
+    border-style: none;
+    border-radius: 4px;
+}
+
+#white-background{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: whitesmoke;
+    opacity: 0.5;
+    z-index: 9999;
+}
+
+
+#right{
+    display: none;
+    color: orangered;
+    font-size: xx-large;
+    margin-top: 10px;
+    font-family: "Comic Sans MS";
+    margin-left: 250px;
+}
+#wrong{
+    display: none;
+    color: orangered;
+    font-size: xx-large;
+    margin-top: 10px;
+    font-family: "Comic Sans MS";
+    margin-left: 250px;
+}

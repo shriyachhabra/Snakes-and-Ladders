@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery.js"></script>
+    <!--<script src="hackerrank.js"></script>-->
+    <script src="bundle1.js"></script>
+
+    <link rel="stylesheet" href="Styling/hackerrank.css">
+    <link rel="stylesheet" href="codemirror-5.29.0/lib/codemirror.css">
+    <link rel="stylesheet" href="codemirror-5.29.0/theme/icecoder.css">
+    <link rel="stylesheet" href="codemirror-5.29.0/theme/eclipse.css">
+    <link rel="stylesheet" href="codemirror-5.29.0/addon/hint/show-hint.css">
+
+    <script src="codemirror-5.29.0/lib/codemirror.js"></script>
+    <script src="codemirror-5.29.0/mode/clike/clike.js"></script>
+    <script src="codemirror-5.29.0/addon/hint/show-hint.js"></script>
+    <script src="codemirror-5.29.0/addon/hint/css-hint.js"></script>
+    <script src="codemirror-5.29.0/addon/hint/anyword-hint.js"></script>
+
+
+</head>
+<body background="images/ques.jpg" style="background-size: cover">
+
+<!--for showing in ppt-->
+<!--for PROMPT-->
+<div id="white-background">
+</div>
+
+
+<div id="Dbox">
+    <div><button id="b">X</button></div>
+    <div id="right">Right answer :)</div>
+    <label style="font-size: large;color: aqua;margin-left: 200px" ><i>Your answer matched all the test cases</i></label>
+    <div><img src="images/guy.gif" id="guy"></div>
+    <div> <button id="nxt">Next Ques</button></div>
+</div>
+
+<!--for showing in ppt-->
+
+
+<div  style="margin-top: 50px">
+    <div style="display:inline-flex;margin-left: 50px">
+    <div id="question"><b >Question</b></div>
+    <div id="quess">
+       <div id ="wholeQues">
+           Write a program to print the first five odd numbers.<br>
+        <label id="quessHint">(The numbers must be printed in the same line..)</label>
+
+       </div>
+    </div>
+
+        <div><img src="images/hourglassT.gif" id="hourglass"></div>
+       &nbsp; <div id="time">60:00</div>
+    </div>
+    <!--<div  id="answ">//Write your ans here</div>-->
+
+    <div id="mylang" style="display:inline-flex;">
+
+        <div id="select">Select your language:</div>
+        <select name="" id="language">
+            <option  value="1" >C</option>
+            <option  value="2">C++</option>
+            <option  value="3" selected>Java</option>
+            <option  value="20">JavaScript</option>
+            <option  value="5">Python</option>
+        </select>
+    </div>
+<div style="display: inline-flex">
+
+    <textarea id="text" placeholder="Write your code here"></textarea>
+    <div id="scoreText">Score</div>
+    <div id="score"> 0</div>
+</div>
+
+
+
+
+</div><br>
+<div id="ito" style="display: inline-flex">
+<div>
+    <label class="output">Input</label><br>
+    <textarea id="input"></textarea>
+</div>
+    <div style="margin-left: 20px">
+    <button id="send">Test</button><br>
+        <img id="loader" src="images/loader6.gif"  >
+    </div>
+<div id="out">
+    <label class="output">Output</label><br>
+<textarea readonly id="response"></textarea>
+</div>
+</div>
+    <br>
+
+
+<div><button id="submit1">SUBMIT</button></div>
+</body>
+</html>
