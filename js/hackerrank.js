@@ -1,7 +1,5 @@
-
  const http = require('http');
  const querystring = require('querystring');
- const $=require('jquery');
 
 $(function () {
     let txt="60:00";
@@ -94,30 +92,19 @@ $(function () {
 
     });
 
-
-
-    // var code=$("#text");
     var send=$("#send");
     var response=$("#response");
     var returnContent="";
     var codeVal;
     var one=$("#one");
-    // console.log(idSel.text());
-    // console.log(idSel.val());
-    // console.log(returnContent);
     send.click(function () {
         loader.show();
         codeVal=editor.getValue();
-        //codeVal=code.val();
-         inp=input.val();
+        inp=input.val();
         result1();
         setTimeout(content,5000);
-        //content();
-        //response.text(returnContent);
         console.log(returnContent);
-      //  response.text(codeVal);
     })
-    //setTimeout(content,5000);
     var result1=function  codeChecker() {
 
 
@@ -154,15 +141,7 @@ $(function () {
             }).on('end', function () {
                 console.log("==============================================================");
                 console.log("Response:");
-                //console.log(JSON.parse(returnContent));
                 res.json(JSON.parse(returnContent));
-                console.log(returnContent);
-                console.log("hi");
-                //code.val();
-                // var s = JSON.parse(returnContent);
-                // console.log(s);
-                // var output1 = s.result.stdout;
-                // console.log(output1);
             });
         });
 

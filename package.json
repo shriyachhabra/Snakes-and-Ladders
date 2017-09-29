@@ -4,7 +4,7 @@
   "description": "\"# game\"",
   "main": "index.js",
   "scripts": {
-    "build": "browserify js/hackerrank.js -o bundle.js",
+    "build": "browserify js/hackerrank.js -o js/bundle1.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
