@@ -1,28 +1,27 @@
 {
-  "name": "sl",
+  "name": "game",
   "version": "1.0.0",
-  "description": "",
-  "main": "hr.js",
+  "description": "\"# game\"",
+  "main": "index.js",
   "scripts": {
-    "build": "browserify hackerrank.js -o bundle1.js",
-    "watch": "watchify hackerrank.js -o bundle1.js",
+    "build": "browserify js/hackerrank.js -o bundle.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shriyachhabra/game.git"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.18.1",
-    "express": "^4.15.4",
-    "http": "0.0.0",
-    "jquery": "^3.2.1",
-    "machinepack-hackerrank": "^0.1.2",
-    "mysql": "^2.14.1",
-    "mysql2": "^1.4.2",
-    "node-hackerrank": "^1.0.6",
-    "sequelize": "^4.10.0"
+  "bugs": {
+    "url": "https://github.com/shriyachhabra/game/issues"
   },
-  "devDependencies": {
+  "homepage": "https://github.com/shriyachhabra/game#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
     "browserify": "^14.4.0",
-    "watchify": "^3.9.0"
+    "express": "^4.16.0",
+    "path": "^0.12.7",
+    "sequelize": "^4.11.4"
   }
 }
