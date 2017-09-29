@@ -105,7 +105,7 @@ $(function () {
 
 function readQuesFile() {
     let questions1=$.ajax({
-        url: "ques",
+        url: "Files/ques",
         async: false
     }).responseText;
     questions=questions1.split(/\r?\n/)
@@ -114,7 +114,7 @@ function readQuesFile() {
 
 function readAnsFile() {
     let answers1=$.ajax({
-        url: "ans",
+        url: "Files/ans",
         async: false
     }).responseText;
     answers=answers1.split(/\r?\n/)

@@ -5,23 +5,6 @@ $(function () {
     let todolist = $('#todolist')
     let pwd=$("#pwd");
     let cname=$("#cname");
-    // function refreshTodos() {
-    //     todolist.empty();
-    //     $.get('/players',
-    //         function (data) {
-    //             for (todo1 of data) {
-    //                 todolist.append($(`
-    //       <li>
-    //         <span>${todo1.name}</span>
-    //         <span>pass = ${todo1.pw}</span>
-    //       </li>`
-    //                 ))
-    //             }
-    //         }
-    //     )
-    // }
-    //
-    // refreshTodos();
 
     addtodo.click(function () {
 

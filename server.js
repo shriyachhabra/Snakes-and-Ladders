@@ -3,11 +3,12 @@
  */
 const express = require('express');
 const bp = require('body-parser');
-const db = require('./db')
+//const db = require('./db')
+const path=require('path');
 
 const app = express();
 
-app.use('/', express.static(__dirname + "/public_static"));
+app.use('/', express.static(path.join(__dirname,"public_static")));
 
 app.use(bp.urlencoded({extended: true}))
 app.use(bp.json())
