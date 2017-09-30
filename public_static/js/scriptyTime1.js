@@ -11,13 +11,13 @@ let questions;
 let answers;
 let i=0;
 
+let scoreVal;
+let pos;
+
+
 $(function () {
-    let lbl1=$("#l1");
-
-    lbl=lbl1;
+    lbl=$("#lbl");
     lbl.text(txt);
-
-
 
     let next=$("#nxt");
     let btnIN=$("#btnIN");
@@ -28,9 +28,16 @@ $(function () {
     let wrong=$("#wrong");
     let guy=$("#guy");
     let score=$("#l3");
-    let scoreVal0=score.text().substring(0,7);
-    let scoreVal=score.text().substring(7);
     let answ=$("#ans");
+
+    let scoreVal0=score.text().substring(0,7); //Score :
+
+    $.post('/detail',function (data) {
+        pos=data.level;
+        scoreVal=data.score;
+        txt=data.timeLeft;
+        i=data.mcq;
+    });
 
     readQuesFile();
     readAnsFile();
@@ -55,24 +62,27 @@ $(function () {
             var val=ans.value;
 
             if (val.localeCompare(a) == 0) {
-                // guy.css('marginLeft',400);
-                rightAnswer();
-
-
-                Dbox.show();
-                right.show();
-                whiteBG.show();
-
-
+                //rightAnswer();
+                i++;
                 console.log("right");
                 let sc=parseInt(scoreVal);
                 sc=sc+2;
                 scoreVal=sc.toString();
                 score.text(scoreVal0+scoreVal);
 
+                $.post('/update',{
+                    lvl:pos,
+                    scr:scoreVal,
+                    time:min+":"+sec,
+                    mcq:i
+                });
+                Dbox.show();
+                right.show();
+                whiteBG.show();
+
             }
             else {
-                wrongAnswer();
+                //wrongAnswer();
                 Dbox.show();
                 wrong.show();
                 whiteBG.show();
@@ -151,215 +161,6 @@ function timer() {
         else{
             lbl.text(min+":"+sec);
         }
-
-    }
-
-};
-
-function rightAnswer()
-{
-    let guy=$("#guy");
-    // at 1
-    if(parseFloat(guy.css('margin-top'))=== 260 && parseFloat(guy.css('marginLeft'))===150)
-    {
-        guy.css('marginLeft',330); //at 3
-    }
-    // at 2
-    else if (parseFloat(guy.css('margin-top'))=== 260 && parseFloat(guy.css('marginLeft')) === 240)
-    {
-        guy.css('marginLeft', 420);
-    }
-    // at 3
-    else if (parseFloat(guy.css('margin-top'))=== 260 && parseFloat(guy.css('marginLeft')) === 330)
-    {
-        guy.css('marginLeft', 420);
-        guy.css('margin-top', 180);
-    }
-
-    // at 4
-    else if (parseFloat(guy.css('margin-top'))=== 260 && parseFloat(guy.css('marginLeft')) === 420)
-    {
-        guy.css('margin-top', 180 );
-        guy.css('marginLeft', 330 );
-    }
-
-    // at 5
-    else if (parseFloat(guy.css('margin-top'))=== 180 && parseFloat(guy.css('marginLeft')) === 420)
-    {
-        guy.css('marginLeft', 240 );
-    }
-
-    // at 6
-    else if (parseFloat(guy.css('margin-top'))=== 180 && parseFloat(guy.css('marginLeft')) === 330)
-    {
-        guy.css('marginLeft', 150 );
-    }
-
-    // at 7
-    else if (parseFloat(guy.css('margin-top'))=== 180 && parseFloat(guy.css('marginLeft')) === 240)
-    {
-        guy.css('margin-top', 100 );
-        guy.css('marginLeft', 150 );
-    }
-
-    // at 8
-    else if (parseFloat(guy.css('margin-top'))=== 180 && parseFloat(guy.css('marginLeft')) === 150)
-    {
-        guy.css('margin-top', 100 );
-        guy.css('marginLeft', 240 );
-    }
-
-    // at 9
-    else if (parseFloat(guy.css('margin-top'))=== 100 && parseFloat(guy.css('marginLeft')) === 150)
-    {
-        guy.css('marginLeft', 330 );
-    }
-
-    // at 10
-    else if (parseFloat(guy.css('margin-top'))=== 100&& parseFloat(guy.css('marginLeft')) === 240)
-    {
-        guy.css('marginLeft', 420 );
-    }
-
-    // at 11
-    else if (parseFloat(guy.css('margin-top'))=== 100 && parseFloat(guy.css('marginLeft')) === 330)
-    {
-        guy.css('margin-top', 20 );
-        guy.css('marginLeft', 420 );
-    }
-
-    // at 12
-    else if (parseFloat(guy.css('margin-top'))=== 100 && parseFloat(guy.css('marginLeft')) === 420)
-    {
-        guy.css('margin-top', 20 );
-        guy.css('marginLeft', 330 );
-    }
-
-    // at 13
-    else if (parseFloat(guy.css('margin-top'))=== 20 && parseFloat(guy.css('marginLeft')) === 420)
-    {
-
-        guy.css('marginLeft',240 );
-    }
-
-    // at 14
-    else if  (parseFloat(guy.css('margin-top'))=== 20 && parseFloat(guy.css('marginLeft')) === 330)
-    {
-
-        guy.css('marginLeft', 150);
-    }
-
-    // at 15
-    else if (parseFloat(guy.css('margin-top'))=== 20 && parseFloat(guy.css('marginLeft')) === 240)
-    {
-
-        guy.css('marginLeft', 150 );
-    }
-
-
-
-};
-
-function wrongAnswer()
-{
-    let guy=$("#guy");
-    // at 1
-    if(parseFloat(guy.css('margin-top'))=== 260 && parseFloat(guy.css('marginLeft')) === 150)
-    {
-
-    }
-    // at 2
-    else if (parseFloat(guy.css('margin-top'))=== 260 &&  parseFloat(guy.css('marginLeft')) === 240)
-    {
-        guy.css('marginLeft', 150 );
-    }
-    // at 3
-    else if (parseFloat(guy.css('margin-top'))=== 260 &&  parseFloat(guy.css('marginLeft')) === 330)
-    {
-        guy.css('marginLeft', 240 );
-
-    }
-
-    // at 4
-    else if (parseFloat(guy.css('margin-top'))=== 260 && parseFloat(guy.css('marginLeft'))  === 420)
-    {
-
-        guy.css('marginLeft', 330 );
-    }
-
-    // at 5
-    else if (parseFloat(guy.css('margin-top'))=== 180 && parseFloat(guy.css('marginLeft')) === 420)
-    {
-        guy.css('margin-top', 260 );
-        guy.css('marginLeft', 420 );
-    }
-
-    // at 6
-    else if (parseFloat(guy.css('margin-top'))=== 180 && parseFloat(guy.css('marginLeft')) === 330)
-    {
-
-        guy.css('marginLeft', 420 );
-    }
-
-    // at 7
-    else if (parseFloat(guy.css('margin-top'))=== 180 && parseFloat(guy.css('marginLeft')) === 240)
-    {
-        guy.css('marginLeft', 330 );
-    }
-
-    // at 8
-    else if (parseFloat(guy.css('margin-top'))=== 180 && parseFloat(guy.css('marginLeft')) === 150)
-    {
-
-        guy.css('marginLeft', 240 );
-    }
-
-    // at 9
-    else if (parseFloat(guy.css('margin-top'))=== 100 &&  parseFloat(guy.css('marginLeft')) === 150)
-    {
-        guy.css('margin-top', 180 );
-        guy.css('marginLeft', 150 );
-    }
-
-    // at 10
-    else if (parseFloat(guy.css('margin-top'))=== 100 &&  parseFloat(guy.css('marginLeft')) === 240)
-    {
-
-        guy.css('marginLeft', 150 );
-    }
-
-    // at 11
-    else if (parseFloat(guy.css('margin-top'))=== 100 &&  parseFloat(guy.css('marginLeft')) === 330)
-    {
-
-        guy.css('marginLeft', 240 );
-    }
-
-    // at 12
-    else if (parseFloat(guy.css('margin-top'))=== 100 &&  parseFloat(guy.css('marginLeft')) === 420)
-    {
-
-        guy.css('marginLeft', 330 );
-    }
-
-    // at 13
-    else if (parseFloat(guy.css('margin-top'))=== 20 &&  parseFloat(guy.css('marginLeft')) === 420)
-    {
-        guy.css('margin-top', 100 );
-        guy.css('marginLeft', 420 );
-    }
-
-    // at 14
-    else if (parseFloat(guy.css('margin-top'))=== 20 &&  parseFloat(guy.css('marginLeft')) === 330)
-    {
-
-        guy.css('marginLeft', 420 );
-    }
-
-    // at 15
-    else if (parseFloat(guy.css('margin-top'))=== 20 &&  parseFloat(guy.css('marginLeft')) === 240)
-    {
-
-        guy.css('marginLeft', 330 );
     }
 }
+

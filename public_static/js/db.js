@@ -14,7 +14,7 @@ const db = new Sequelize({
 });
 
 
-const Todos = db.define('players', {
+const Todos = db.define('Players', {
     TeamName:{type: Sequelize.DataTypes.STRING,
     primaryKey:true
 
@@ -30,23 +30,50 @@ db.sync({alter: true}).then(function () {
     console.log("Database is ready");
 });
 
+// function exists() {
+//     Todos.count({where:{TeamName:name}})
+//         .then(count => {
+//             if(count != 0) {
+//                 return true;
+//             }
+//             return false;
+//         });
+// }
+
 function addTodo(Tname,pw) {
-    console.log(Tname+"   "+pw);
-    name=Tname;
-    return Todos.create({
-        TeamName: Tname,
-        pw:pw,
-        timeLeft:"60:00",
-        score:0,
-        level:1,
-        mcq:0
+        name=Tname;
+            return Todos.create({
+                TeamName: Tname,
+                pw: pw,
+                timeLeft: "60:00",
+                score: 0,
+                level: 1,
+                mcq: 0
+            })
+}
+
+function getTodo () {
+    return Todos.findOne({
+        where:{
+            TeamName:name
+        }
     })
 }
 
-function getTodos () {
-    return Todos.findAll()
+function update(body) {
+    Todos.update({
+        mcq:body.mcq,
+        score:body.scr,
+        level:body.lvl,
+        timeLeft:body.time
+    },{where:{TeamName:name}})
+        .then(function (data) {
+            console.log(data);
+        }).catch(function (err) {
+        throw err;
+    })
 }
 
 module.exports = {
-    addTodo, getTodos
+    addTodo, getTodo , update
 };
