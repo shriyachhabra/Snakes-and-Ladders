@@ -1,5 +1,4 @@
 .CodeMirror{
-    /*width: 300px;*/
     border: solid;
     border-color: black;
     width: 550px;
@@ -23,7 +22,7 @@
     margin-left: 20px;
     height: 100px;
 }
-#send,#submit{
+#send,#submit,#test{
     cursor: pointer;
     font-size: 20px;
     border:solid;
@@ -31,7 +30,7 @@
     color: cadetblue;
     margin-left: 60px;
 }
-#send:hover,#submit:hover{
+#send:hover,#submit:hover,#test:hover{
 background: cadetblue;
 color: white;
 }

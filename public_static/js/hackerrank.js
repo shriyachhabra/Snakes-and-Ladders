@@ -1,27 +1,44 @@
- const http = require('http');
- const querystring = require('querystring');
+const http = require('http');
+const querystring = require('querystring');
+let inputs=[];
+let ind=0;
+let ans=[
+    ["1 3","1 3 5"]
+];
+let ques_inp=[
+    ["2","3"]
+];
 
 $(function () {
-    let txt = "60:00";
+    let time;
     let lbl = $("#time");
-    let min = txt.substring(0, 2);
-    let sec = txt.substring(3);
-    let min1 = parseInt(min);
-    let sec1 = parseInt(sec);
     let myVar = setInterval(timer, 1000);
     //for the purpose of showing
     let score = $("#score");
     let submit = $("#submit");
     let moveon = $("#moveon");
-
+    let test = $('#test');
     let next = $("#nxt");
     let Dbox = $("#Dbox");
     let whiteBG = $("#white-background");
     let rightans = $("#right");
     let guy = $("#guy");
     let input = $("#input");
+    let report = $('#report');
 
-    var inp;
+    // test.hide();
+    // submit.hide();
+    // moveon.hide();
+
+    $.post('/detail',function (data,success) {
+        score.text(data.score);
+        time=data.timeLeft;
+        ind=data.level%4;
+        submit.show();
+        moveon.show();
+        test.show();
+    });
+
     var code = $("#text")[0];
     var editor = CodeMirror.fromTextArea(code, {
         mode: "clike",
@@ -88,21 +105,42 @@ $(function () {
 
     });
 
-    var send = $("#send");
     var response = $("#response");
     var returnContent = "";
     var codeVal;
     var one = $("#one");
-    send.click(function () {
+
+    test.click(function () {
         loader.show();
         codeVal = editor.getValue();
-        inp = input.val();
+        inputs.push(input.val());
+        inputs=JSON.stringify(inputs);
+        console.log(inputs);
         result1();
         setTimeout(content, 5000);
-        console.log(returnContent);
-    })
-    var result1 = function codeChecker() {
+        loader.hide();
+        inputs=[];
+    });
 
+    submit.click(function () {
+        loader.show();
+        codeVal=editor.getValue();
+        inputs=JSON.stringify(ques_inp[ind]);
+        console.log(inputs);
+        result1();
+        console.log(returnContent);
+        codearray=JSON.parse(returnContent).result.stdout;
+        console.log(codearray);
+        let count=0;
+        for(let t=0;t<ans[ind].length;t++){
+            if(ans[ind][t]===codearray[t].trim())
+            count++;
+        }
+        report.text(count+" out of "+codearray.length+" testcases passed");
+        loader.hide();
+        inputs=[];
+    });
+    var result1 = function codeChecker() {
 
         var jsonToSend = querystring.stringify({
             'request_format': 'json',
@@ -111,11 +149,9 @@ $(function () {
             'wait': true,
             'callback_url': '',
             'api_key': "hackerrank|1519194-1545|25d6fbfd1d3a849eaf98463723fd7120a28f244c",
-            'testcases': "[" + "\"" + inp + "\"" + "]"
+            'testcases': inputs
         });
 
-        console.log("==============================================================");
-        console.log("Submission:");
 
         var HRoptions = {
             hostname: 'api.hackerrank.com',
@@ -134,36 +170,29 @@ $(function () {
                 } catch (e) {
                     returnContent = "Error: " + e;
                 }
-            }).on('end', function () {
-                console.log("==============================================================");
-                console.log("Response:");
-                res.json(JSON.parse(returnContent));
             });
         });
 
         HRrequest.on('error', function (e) {
             returnContent = "Error: " + e.message;
-            res.json(returnContent);
         });
 
         HRrequest.write(jsonToSend);
 
         HRrequest.end();
-        return returnContent;
-    }
+    };
 
-//for showing
-    submit.click(function () {
-
-        whiteBG.show();
-        Dbox.show();
-        rightans.show();
-        score.text(2);
-        setTimeout(function () {
-            guy.css('marginLeft', 350);
-        }, 2000);
-
-    })
+// //for showing
+//     submit.click(function () {
+//         whiteBG.show();
+//         Dbox.show();
+//         rightans.show();
+//         score.text(2);
+//         setTimeout(function () {
+//             guy.css('marginLeft', 350);
+//         }, 2000);
+//
+//     })
     //for showing
     next.click(function () {
         whiteBG.hide();
@@ -172,58 +201,24 @@ $(function () {
     })
 
     function content() {
-        console.log("~~~~~~~~~~~~~~~~~~~~~~~~");
-        console.log(returnContent);
-
-        var str = "";
-        // str=output1;
         var s = JSON.parse(returnContent);
         console.log(s);
         var output1 = s.result.stdout;
 
-        response.text(output1);
+        response.text(output1[0]);
         loader.hide();
-        console.log(output1);
-        console.log(str);
-
     }
 
     function timer() {
-
-        if (sec1 == 0 && min1 == 0) {
-            clearInterval(myVar);
-            lbl.text("00:00");
-        } else if (sec1 == 0 && min1 != 0) {
-            sec1 = 59;
-            min1 = min1 - 1;
-            min = min1.toString();
-            sec = sec1.toString();
-            if (min.length == 1) {
-                min = "0" + min;
-                lbl.text(min + ":" + sec);
-            } else {
-                lbl.text(min + ":" + sec);
-            }
-        } else if (sec1 != 0) {
-
-            sec1 = sec1 - 1;
-            sec = sec1.toString();
-            if (sec.length != 2) {
-                lbl.text(min + ":0" + sec);
-            }
-            else {
-                lbl.text(min + ":" + sec);
-            }
-
-        }
-
+        time--;
+        lbl.text(Math.floor(time/60)+":"+time%60);
     };
 
     moveon.click(function () {
         window.close();
         window.open("quespage.html")
     })
-})
+});
 
 
 

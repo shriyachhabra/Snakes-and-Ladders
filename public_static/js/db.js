@@ -65,7 +65,8 @@ function update(body) {
         mcq:body.mcq,
         score:body.scr,
         level:body.lvl,
-        timeLeft:body.time
+        timeLeft:body.g_time
+
     },{where:{TeamName:name}})
         .then(function (data) {
             console.log(data);

@@ -7,16 +7,16 @@
     <script src="js/bundle.js"></script>
 
     <link rel="stylesheet" href="Styling/hackerrank.css">
-    <link rel="stylesheet" href="../codemirror-5.29.0/lib/codemirror.css">
-    <link rel="stylesheet" href="../codemirror-5.29.0/theme/icecoder.css">
-    <link rel="stylesheet" href="../codemirror-5.29.0/theme/eclipse.css">
-    <link rel="stylesheet" href="../codemirror-5.29.0/addon/hint/show-hint.css">
+    <link rel="stylesheet" href="codemirror-5.29.0/lib/codemirror.css">
+    <link rel="stylesheet" href="codemirror-5.29.0/theme/icecoder.css">
+    <link rel="stylesheet" href="codemirror-5.29.0/theme/eclipse.css">
+    <link rel="stylesheet" href="codemirror-5.29.0/addon/hint/show-hint.css">
 
-    <script src="../codemirror-5.29.0/lib/codemirror.js"></script>
-    <script src="../codemirror-5.29.0/mode/clike/clike.js"></script>
-    <script src="../codemirror-5.29.0/addon/hint/show-hint.js"></script>
-    <script src="../codemirror-5.29.0/addon/hint/css-hint.js"></script>
-    <script src="../codemirror-5.29.0/addon/hint/anyword-hint.js"></script>
+    <script src="codemirror-5.29.0/lib/codemirror.js"></script>
+    <script src="codemirror-5.29.0/mode/clike/clike.js"></script>
+    <script src="codemirror-5.29.0/addon/hint/show-hint.js"></script>
+    <script src="codemirror-5.29.0/addon/hint/css-hint.js"></script>
+    <script src="codemirror-5.29.0/addon/hint/anyword-hint.js"></script>
 
 
 </head>
@@ -69,10 +69,22 @@
 <div style="display: inline-flex">
 
     <textarea id="text" placeholder="Write your code here"></textarea>
-    <div id="scoreText">Score</div>
-    <div id="score"> 0</div>
+    <table>
+        <tr>
+            <td style="display: inline-flex">
+                <div id="scoreText">Score</div>
+                <div id="score"> 0</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="report" style="float: right;margin: 20px;color: white;font-size: x-large">
+                </div>
+            </td>
+        </tr>
+    </table>
 </div>
-
+<div>Hello folks</div>
 
 
 
@@ -83,8 +95,11 @@
     <textarea id="input"></textarea>
 </div>
     <div style="margin-left: 20px">
-        <button id="send">Test</button><br>
+
+        <button id="test">Test</button><br>
+
         <button id="submit" style="margin-top: 10px">Submit</button><br>
+
         <img id="loader" src="Images/loader6.gif"  >
     </div>
 <div id="out">

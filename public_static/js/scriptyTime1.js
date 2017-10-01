@@ -1,6 +1,6 @@
 
 let lbl;
-let gtime;
+let time;
 let myVar=setInterval(timer,1000);
 
 let questions;
@@ -68,7 +68,7 @@ $(function () {
                 $.post('/update', {
                     lvl: pos,
                     scr: scoreVal,
-                    time: gtime,
+                    g_time: time,
                     mcq: i
                 });
                 Dbox.show();
