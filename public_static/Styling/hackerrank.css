@@ -23,7 +23,7 @@
     margin-left: 20px;
     height: 100px;
 }
-#send{
+#send,#submit{
     cursor: pointer;
     font-size: 20px;
     border:solid;
@@ -31,7 +31,7 @@
     color: cadetblue;
     margin-left: 60px;
 }
-#send:hover{
+#send:hover,#submit:hover{
 background: cadetblue;
 color: white;
 }
@@ -199,7 +199,7 @@ color: white;
     position: absolute;
     margin-left: 340px;
 }
-#submit1{
+#moveon{
 
     padding: 5px;
     cursor: pointer;
@@ -216,10 +216,10 @@ color: white;
     margin-top: 30px;
 
 }
-#submit1:active{
+#moveon:active{
     box-shadow: 0px 0px 0px;
 }
-#submit1:hover{
+#moveon:hover{
     background: cadetblue;
     color: white;
 }

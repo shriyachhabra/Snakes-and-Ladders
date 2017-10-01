@@ -22,7 +22,7 @@ const Todos = db.define('Players', {
     pw:Sequelize.DataTypes.STRING,//password
     score:Sequelize.DataTypes.INTEGER,
     level:Sequelize.DataTypes.INTEGER,
-    timeLeft:Sequelize.DataTypes.STRING,
+    timeLeft:Sequelize.DataTypes.INTEGER,
     mcq:Sequelize.DataTypes.INTEGER
 });
 
@@ -45,7 +45,7 @@ function addTodo(Tname,pw) {
             return Todos.create({
                 TeamName: Tname,
                 pw: pw,
-                timeLeft: "60:00",
+                timeLeft: 3600,
                 score: 0,
                 level: 1,
                 mcq: 0
