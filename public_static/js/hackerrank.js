@@ -2,12 +2,15 @@ const http = require('http');
 const querystring = require('querystring');
 let inputs=[];
 let ind=0;
+let imcq;
 let ans=[
     ["1 3","1 3 5"]
 ];
 let ques_inp=[
     ["2","3"]
 ];
+
+let max_scr=0;
 
 $(function () {
     let time;
@@ -25,18 +28,16 @@ $(function () {
     let guy = $("#guy");
     let input = $("#input");
     let report = $('#report');
+    let loader = $("#loader");
 
-    // test.hide();
-    // submit.hide();
-    // moveon.hide();
+    disabler();
 
     $.post('/detail',function (data,success) {
         score.text(data.score);
         time=data.timeLeft;
-        ind=data.level%4;
-        submit.show();
-        moveon.show();
-        test.show();
+        ind=data.level;
+        imcq=data.mcq;
+        enabler();
     });
 
     var code = $("#text")[0];
@@ -47,10 +48,6 @@ $(function () {
         lineNumbers: true,
         extraKeys: {"Ctrl-Space": "autocomplete"}
     });
-
-    var loader = $("#loader");
-    loader.hide();
-
 
     var langCode = 3;
     let language = $("#language");
@@ -111,34 +108,35 @@ $(function () {
     var one = $("#one");
 
     test.click(function () {
-        loader.show();
+        disabler();
         codeVal = editor.getValue();
         inputs.push(input.val());
         inputs=JSON.stringify(inputs);
         console.log(inputs);
         result1();
         setTimeout(content, 5000);
-        loader.hide();
         inputs=[];
+        enabler();
     });
 
     submit.click(function () {
-        loader.show();
+        disabler();
         codeVal=editor.getValue();
-        inputs=JSON.stringify(ques_inp[ind]);
+        inputs=JSON.stringify(ques_inp[(ind/4)-1]);
         console.log(inputs);
         result1();
         console.log(returnContent);
         codearray=JSON.parse(returnContent).result.stdout;
         console.log(codearray);
         let count=0;
-        for(let t=0;t<ans[ind].length;t++){
-            if(ans[ind][t]===codearray[t].trim())
+        for(let t=0;t<ans[(ind/4)-1].length;t++){
+            if(ans[(ind/4)-1][t]===codearray[t].trim())
             count++;
         }
+        max_scr=Math.floor((count*4)/codearray.length);
         report.text(count+" out of "+codearray.length+" testcases passed");
-        loader.hide();
         inputs=[];
+        enabler();
     });
     var result1 = function codeChecker() {
 
@@ -165,6 +163,7 @@ $(function () {
         var HRrequest = http.request(HRoptions, function (HRresponse) {
             HRresponse.setEncoding('utf8');
             HRresponse.on('data', function (data) {
+                enabler();
                 try {
                     returnContent = data;
                 } catch (e) {
@@ -174,6 +173,7 @@ $(function () {
         });
 
         HRrequest.on('error', function (e) {
+            enabler();
             returnContent = "Error: " + e.message;
         });
 
@@ -215,9 +215,29 @@ $(function () {
     };
 
     moveon.click(function () {
-        window.close();
-        window.open("quespage.html")
+        $.post('/update', {
+            lvl: ind+1,
+            scr: parseInt(score.text())+max_scr,
+            g_time: time,
+            mcq: imcq
+        },function (data) {
+            window.open("quesPage.html");
+        })
     })
+
+    function disabler() {
+        loader.show();
+        moveon.attr("disabled",true);
+        test.attr("disabled",true);
+        submit.attr("disabled",true);
+    }
+
+    function enabler() {
+        loader.hide();
+        moveon.attr("disabled",false);
+        test.attr("disabled",false);
+        submit.attr("disabled",false);
+    }
 });
 
 

@@ -28,7 +28,7 @@ $(function () {
 
     let scoreVal0 = score.text().substring(0, 7); //Score :
 
-    $.post('/detail',function (data,success) {
+    $.post('/detail',function (data) {
         pos = data.level;
         scoreVal = data.score;
         score.text(scoreVal0+scoreVal);
@@ -70,11 +70,11 @@ $(function () {
                     scr: scoreVal,
                     g_time: time,
                     mcq: i
+                },function (data) {
+                    Dbox.show();
+                    right.show();
+                    whiteBG.show();
                 });
-                Dbox.show();
-                right.show();
-                whiteBG.show();
-
             }
             else {
                 //TODO: wrong answer work
@@ -96,7 +96,7 @@ $(function () {
         wrong.hide();
         Dbox.hide();
         whiteBG.hide();
-        if((i+1)%4===0){
+        if(i%3===0){
         window.close();
         window.open('hackerrank.html');
             }

@@ -33,6 +33,7 @@ app.post('/players', (req, res) => {
 
 app.post('/update',(req,res)=>{
     db.update(req.body);
+    res.send({success:true})
 });
 
 app.listen(8001, function () {
