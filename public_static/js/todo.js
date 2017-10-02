@@ -4,19 +4,24 @@ $(function () {
     let pwd=$("#pwd");
 
     addtodo.click(function () {
-        $.post('/players',
-            {   TeamName: newtodo.val(),
-                pw:pwd.val()
-            },
-            function (data,err) {
-                if (data.success) {
-                    console.log("yay");
+        if(newtodo.val()===""||pwd.val()===""){}
+        else
+        {
+            $.post('/players',
+                {
+                    TeamName: newtodo.val(),
+                    pw: pwd.val()
+                },
+                function (data, err) {
+                    if (data.success) {
+                        console.log("yay");
+                    }
+                    else
+                        throw err;
                 }
-                else
-                    throw err;
-            }
-        );
-        window.open('/instructions.html');
-        self.close();
+            );
+            window.open('/instructions.html');
+            self.close();
+        }
     })
 });

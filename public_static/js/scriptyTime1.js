@@ -36,13 +36,14 @@ $(function () {
         i = data.mcq;
         output1.text(questions[i]);
         btnIN.show();
+        move(pos);
     });
     readQuesFile();
     readAnsFile();
 
     //to press the enter key to submit
     answ.keyup(function (event) {
-        if (event.keyCode == 13) {
+        if (event.keyCode === 13) {
             btnIN.click();
         }
     });
@@ -55,7 +56,7 @@ $(function () {
         } else {
             var val = ans.value;
 
-            if (val.localeCompare(a) == 0) {
+            if (val.localeCompare(a) === 0) {
                 //TODO: MOVEMENT OF MAN
                 i++;
                 console.log("right");
@@ -71,6 +72,7 @@ $(function () {
                     g_time: time,
                     mcq: i
                 },function (data) {
+                    move(pos);
                     Dbox.show();
                     right.show();
                     whiteBG.show();
@@ -108,112 +110,100 @@ $(function () {
                 clearInterval(myVar);
             }
         }})
-})
+});
 
 function readQuesFile() {
     let questions1=$.ajax({
         url: "Files/ques",
         async: false
     }).responseText;
-    questions=questions1.split(/\r?\n/)
+    questions=questions1.split(/\r?\n/);
     console.log(questions1);
-};
+}
 
 function readAnsFile() {
     let answers1=$.ajax({
         url: "Files/ans",
         async: false
     }).responseText;
-    answers=answers1.split(/\r?\n/)
+    answers=answers1.split(/\r?\n/);
     console.log(answers1);
-};
+}
 
 function timer() {
     time--;
     lbl.text(Math.floor(time/60)+":"+time%60);
 }
 
-function rightAnswer() {
+function move(moveto) {
     let guy = $("#guy");
     // at 1
-    if (parseFloat(guy.css('margin-top')) === 260 && parseFloat(guy.css('marginLeft')) === 150) {
-        guy.css('marginLeft', 330); //at 3
-    }
-    // at 2
-    else if (parseFloat(guy.css('margin-top')) === 260 && parseFloat(guy.css('marginLeft')) === 240) {
-        guy.css('marginLeft', 420);
-    }
-    // at 3
-    else if (parseFloat(guy.css('margin-top')) === 260 && parseFloat(guy.css('marginLeft')) === 330) {
-        guy.css('marginLeft', 420);
-        guy.css('margin-top', 180);
-    }
-
-    // at 4
-    else if (parseFloat(guy.css('margin-top')) === 260 && parseFloat(guy.css('marginLeft')) === 420) {
-        guy.css('margin-top', 180);
-        guy.css('marginLeft', 330);
-    }
-
-    // at 5
-    else if (parseFloat(guy.css('margin-top')) === 180 && parseFloat(guy.css('marginLeft')) === 420) {
-        guy.css('marginLeft', 240);
-    }
-
-    // at 6
-    else if (parseFloat(guy.css('margin-top')) === 180 && parseFloat(guy.css('marginLeft')) === 330) {
-        guy.css('marginLeft', 150);
-    }
-
-    // at 7
-    else if (parseFloat(guy.css('margin-top')) === 180 && parseFloat(guy.css('marginLeft')) === 240) {
-        guy.css('margin-top', 100);
-        guy.css('marginLeft', 150);
-    }
-
-    // at 8
-    else if (parseFloat(guy.css('margin-top')) === 180 && parseFloat(guy.css('marginLeft')) === 150) {
-        guy.css('margin-top', 100);
-        guy.css('marginLeft', 240);
-    }
-
-    // at 9
-    else if (parseFloat(guy.css('margin-top')) === 100 && parseFloat(guy.css('marginLeft')) === 150) {
-        guy.css('marginLeft', 330);
-    }
-
-    // at 10
-    else if (parseFloat(guy.css('margin-top')) === 100 && parseFloat(guy.css('marginLeft')) === 240) {
-        guy.css('marginLeft', 420);
-    }
-
-    // at 11
-    else if (parseFloat(guy.css('margin-top')) === 100 && parseFloat(guy.css('marginLeft')) === 330) {
-        guy.css('margin-top', 20);
-        guy.css('marginLeft', 420);
-    }
-
-    // at 12
-    else if (parseFloat(guy.css('margin-top')) === 100 && parseFloat(guy.css('marginLeft')) === 420) {
-        guy.css('margin-top', 20);
-        guy.css('marginLeft', 330);
-    }
-
-    // at 13
-    else if (parseFloat(guy.css('margin-top')) === 20 && parseFloat(guy.css('marginLeft')) === 420) {
-
-        guy.css('marginLeft', 240);
-    }
-
-    // at 14
-    else if (parseFloat(guy.css('margin-top')) === 20 && parseFloat(guy.css('marginLeft')) === 330) {
-
-        guy.css('marginLeft', 150);
-    }
-
-    // at 15
-    else if (parseFloat(guy.css('margin-top')) === 20 && parseFloat(guy.css('marginLeft')) === 240) {
-
-        guy.css('marginLeft', 150);
+    let x=[150,240,330,420];
+    let y=[20,100,180,260];
+    switch (moveto){
+        case 1:
+            guy.css('margin-top',y[3]);
+            guy.css('marginLeft',x[0]);
+            break;
+        case 2:
+            guy.css('margin-top',y[3]);
+            guy.css('marginLeft',x[1]);
+            break;
+        case 3:
+            guy.css('margin-top',y[3]);
+            guy.css('marginLeft',x[2]);
+            break;
+        case 4:
+            guy.css('margin-top',y[3]);
+            guy.css('marginLeft',x[3]);
+            break;
+        case 5:
+            guy.css('margin-top',y[2]);
+            guy.css('marginLeft',x[3]);
+            break;
+        case 6:
+            guy.css('margin-top',y[2]);
+            guy.css('marginLeft',x[2]);
+            break;
+        case 7:
+            guy.css('margin-top',y[2]);
+            guy.css('marginLeft',x[1]);
+            break;
+        case 8:
+            guy.css('margin-top',y[2]);
+            guy.css('marginLeft',x[0]);
+            break;
+        case 9:
+            guy.css('margin-top',y[1]);
+            guy.css('marginLeft',x[0]);
+            break;
+        case 10:
+            guy.css('margin-top',y[1]);
+            guy.css('marginLeft',x[1]);
+            break;
+        case 11:
+            guy.css('margin-top',y[1]);
+            guy.css('marginLeft',x[2]);
+            break;
+        case 12:
+            guy.css('margin-top',y[1]);
+            guy.css('marginLeft',x[3]);
+            break;
+        case 13:
+            guy.css('margin-top',y[0]);
+            guy.css('marginLeft',x[3]);
+            break;
+        case 14:
+            guy.css('margin-top',y[0]);
+            guy.css('marginLeft',x[2]);
+            break;
+        case 15:
+            guy.css('margin-top',y[0]);
+            guy.css('marginLeft',x[1]);
+            break;
+        case 16:
+            guy.css('margin-top',y[0]);
+            guy.css('marginLeft',x[0]);
+            break;
     }
 }
