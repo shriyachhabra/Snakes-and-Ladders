@@ -1,15 +1,26 @@
-#ready{
+#s1{
+    height: 170px;
+    margin-left: 630px;
+}
 
-    font-size: 60px ;
-    color: red;
-    font-family: "Calisto MT";
+#s2{
+    height: 170px;
+    margin-left: 1025px;
+}
+
+#s3{
+    height: 170px;
+    margin-left: 630px;
+}
+#s4{
+    position:absolute;
+    height: 170px;
+    margin-left: 1025px;
 
 }
-.di{
-    margin-top: 70px;
-    margin-left: 740px;
-}
-#play{
+
+
+#begin{
     cursor: pointer;
     background: white;
     color: cadetblue;
@@ -21,7 +32,7 @@
     border-color: cadetblue;
 
 }
-#play:active{
+#begin:active{
     background: cadetblue;
     color: white;
 }
