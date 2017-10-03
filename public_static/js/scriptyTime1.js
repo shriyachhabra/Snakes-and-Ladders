@@ -34,6 +34,9 @@ $(function () {
         score.text(scoreVal0+scoreVal);
         time=data.timeLeft;
         i = data.mcq;
+        if(pos===17||i>=questions.length()){
+            endgame();
+        }
         output1.text(questions[i]);
         btnIN.show();
         move(pos);
@@ -132,6 +135,8 @@ function readAnsFile() {
 
 function timer() {
     time--;
+    if(time===0)
+        endgame();
     lbl.text(Math.floor(time/60)+":"+time%60);
 }
 
@@ -206,4 +211,9 @@ function move(moveto) {
             guy.css('marginLeft',x[0]);
             break;
     }
+}
+
+function endgame() {
+    window.close();
+    window.open('final.html');
 }
