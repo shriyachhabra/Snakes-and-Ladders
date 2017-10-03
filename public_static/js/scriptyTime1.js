@@ -60,7 +60,6 @@ $(function () {
             var val = ans.value;
 
             if (val.localeCompare(a) === 0) {
-                //TODO: MOVEMENT OF MAN
                 i++;
                 console.log("right");
                 let sc = parseInt(scoreVal);
@@ -82,16 +81,23 @@ $(function () {
                 });
             }
             else {
-                //TODO: wrong answer work
-                Dbox.show();
-                wrong.show();
-                whiteBG.show();
-
+                i++;
                 console.log("false");
+
                 let sc = parseInt(scoreVal);
-                sc = sc - 1;
+                sc--;
                 scoreVal = sc.toString();
                 score.text(scoreVal0 + scoreVal);
+                $.post('/update', {
+                    lvl: pos,
+                    scr: scoreVal,
+                    g_time: time,
+                    mcq: i
+                },function (data) {
+                    Dbox.show();
+                    right.show();
+                    whiteBG.show();
+                });
             }
         }
     });
@@ -106,12 +112,10 @@ $(function () {
         window.open('hackerrank.html');
             }
             else{
-            output1.text(questions[i]);
-            if(i>=questions.length)
-            {
-                output1.text("game over");
-                clearInterval(myVar);
+            if(i>=questions.length) {
+                endgame();
             }
+            output1.text(questions[i]);
         }})
 });
 
