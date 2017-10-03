@@ -32,7 +32,7 @@ app.get('/demo',(req,res)=>{
 });
 //Add a new player
 app.post('/players', (req, res) => {
-    db.addTodo(req.body.TeamName,req.body.pw).then(function () {
+    db.addTodo(req.body).then(function () {
         res.send({success: true})
     }).catch(function (err) {
         throw err;

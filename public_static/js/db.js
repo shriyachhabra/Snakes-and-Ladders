@@ -17,13 +17,16 @@ const db = new Sequelize({
 const Todos = db.define('Players', {
     TeamName:{type: Sequelize.DataTypes.STRING,
     primaryKey:true
-
     },  //TASK
-    pw:Sequelize.DataTypes.STRING,//password
     score:Sequelize.DataTypes.INTEGER,
     level:Sequelize.DataTypes.INTEGER,
     timeLeft:Sequelize.DataTypes.INTEGER,
-    mcq:Sequelize.DataTypes.INTEGER
+    mcq:Sequelize.DataTypes.INTEGER,
+    name1:Sequelize.DataTypes.STRING,
+    name2:Sequelize.DataTypes.STRING,
+    college:Sequelize.DataTypes.STRING,
+    email:Sequelize.DataTypes.STRING,
+    tel:Sequelize.DataTypes.STRING
 });
 
 db.sync({alter: true}).then(function () {
@@ -40,11 +43,15 @@ db.sync({alter: true}).then(function () {
 //         });
 // }
 
-function addTodo(Tname,pw) {
-        name=Tname;
+function addTodo(data) {
+        name=data.TeamName;
             return Todos.create({
-                TeamName: Tname,
-                pw: pw,
+                TeamName: data.TeamName,
+                name1: data.Name1,
+                name2: data.Name2,
+                college: data.CollegeName,
+                email: data.Email,
+                tel: data.Phone,
                 timeLeft: 3600,
                 score: 0,
                 level: 1,
