@@ -21,10 +21,18 @@ app.post('/detail', (req, res) => {
         res.send({error: "Could not retrieve todos"})
     })
 });
-
+app.get('/demo',(req,res)=>{
+  db.update({
+      mcq:11,
+      scr:26,
+      lvl:17,
+      g_time:927
+  });
+  res.send({success:true})
+});
 //Add a new player
 app.post('/players', (req, res) => {
-    db.addTodo(req.body.TeamName,req.body.pw).then(function () {
+    db.addTodo(req.body).then(function () {
         res.send({success: true})
     }).catch(function (err) {
         throw err;
