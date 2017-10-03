@@ -23,7 +23,7 @@ $(function () {
     let guy = $("#guy");
     let score = $("#l3");
     let answ = $("#ans");
-    btnIN.hide();
+    // btnIN.hide();
 
 
     let scoreVal0 = score.text().substring(0, 7); //Score :
