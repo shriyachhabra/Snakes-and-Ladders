@@ -44,6 +44,6 @@ app.post('/update',(req,res)=>{
     res.send({success:true})
 });
 
-app.listen(8001, function () {
-console.log("Server started on http://localhost:8001");
+app.listen(4000, function () {
+console.log("Server started on http://localhost:4000");
 });

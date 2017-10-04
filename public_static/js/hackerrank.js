@@ -296,7 +296,7 @@ $(function () {
         whiteBG.hide();
         Dbox.hide();
         rightans.hide();
-    })
+    });
 
     function content() {
         var s = JSON.parse(returnContent);
@@ -312,7 +312,7 @@ $(function () {
         if(time===0)
             endgame();
         lbl.text(Math.floor(time/60)+":"+time%60);
-    };
+    }
 
     moveon.click(function () {
         $.post('/update', {
@@ -321,9 +321,10 @@ $(function () {
             g_time: time,
             mcq: imcq
         },function (data) {
+            window.close();
             window.open("quesPage.html");
         })
-    })
+    });
 
     function disabler() {
         loader.show();
