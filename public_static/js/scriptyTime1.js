@@ -34,7 +34,7 @@ $(function () {
         score.text(scoreVal0+scoreVal);
         time=data.timeLeft;
         i = data.mcq;
-        if(pos===17||i>=questions.length()){
+        if(pos===17||i>=questions.length){
             endgame();
         }
         output1.text(questions[i]);
@@ -57,6 +57,7 @@ $(function () {
         if (i >= questions.length) {
             Dbox.hide();
         } else {
+            btnIN.attr('disabled','disabled');
             var val = ans.value;
 
             if (val.localeCompare(a) === 0) {
@@ -78,6 +79,7 @@ $(function () {
                     Dbox.show();
                     right.show();
                     whiteBG.show();
+                    disable();
                 });
             }
             else {
@@ -103,6 +105,7 @@ $(function () {
     });
 
     next.click(function () {
+        btnIN.removeAttr('disabled');
         right.hide();
         wrong.hide();
         Dbox.hide();
