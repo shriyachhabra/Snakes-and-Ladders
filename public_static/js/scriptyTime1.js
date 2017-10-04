@@ -30,7 +30,7 @@ $(function () {
     let scoreVal0 = score.text().substring(0, 7); //Score :
 
     instr.click(function () {
-        window.open('Instructions.html')
+        window.open('instr2.html');
     });
 
     $.post('/detail',function (data) {
