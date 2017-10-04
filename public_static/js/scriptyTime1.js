@@ -1,4 +1,4 @@
-
+let working=false;
 let lbl;
 let time;
 let myVar=setInterval(timer,1000);
@@ -6,7 +6,6 @@ let myVar=setInterval(timer,1000);
 let questions;
 let answers;
 let i=0;
-let j=0;// for answers (4 answers for one ques)
 let scoreVal;
 let pos;
 
@@ -24,7 +23,7 @@ $(function () {
     let score = $("#l3");
     let instr=$("#instr");
     let answ = $("#ans");
-     // btnIN.hide();
+    btnIN.hide();
 
 
 
@@ -32,7 +31,7 @@ $(function () {
 
     instr.click(function () {
         window.open('Instructions.html')
-    })
+    });
 
     $.post('/detail',function (data) {
         pos = data.level;
@@ -43,13 +42,13 @@ $(function () {
         if(pos===17||i>=questions.length){
             endgame();
         }
-
+        $('#TN').text(data.TeamName);
+        output1.text(questions[i]);
         btnIN.show();
         move(pos);
     });
     readQuesFile();
     readAnsFile();
-    output1.text(questions[i]);
     //to press the enter key to submit
     answ.keyup(function (event) {
         if (event.keyCode === 13) {
@@ -58,69 +57,63 @@ $(function () {
     });
 
     btnIN.click(function () {
-
-        let a1=answers[j];
-        j++;
-        let a2=answers[j];
-        j++;
-        let a3=answers[j];
-        j++;
-        let a4=answers[j];
-        j++;
-        let ans = document.getElementById("ans");
-        if (i >= questions.length) {
-            Dbox.hide();
-        } else {
-            btnIN.attr('disabled','disabled');
-            var val = ans.value;
-
-            if (val.localeCompare(a1) == 0 ||val.localeCompare(a2) == 0||val.localeCompare(a3) == 0||val.localeCompare(a4) == 0 )
-            {
+        if(!working) {
+            working=true;
+            let j=i*4;
+            let a1 = answers[j];
+            let a2 = answers[j+1];
+            let a3 = answers[j+2];
+            let a4 = answers[j+3];
+            let ans = document.getElementById("ans");
+            if (i >= questions.length) {
+                Dbox.hide();
+            } else {
                 i++;
-                console.log("right");
-                let sc = parseInt(scoreVal);
-                sc++;
-                scoreVal = sc.toString();
-                score.text(scoreVal0 + scoreVal);
-                pos++;
+                var val = ans.value;
+                if (val.localeCompare(a1) == 0 || val.localeCompare(a2) == 0 || val.localeCompare(a3) == 0 || val.localeCompare(a4) == 0) {
+                    console.log("right");
+                    let sc = parseInt(scoreVal);
+                    sc++;
+                    scoreVal = sc.toString();
+                    score.text(scoreVal0 + scoreVal);
+                    pos++;
 
-                $.post('/update', {
-                    lvl: pos,
-                    scr: scoreVal,
-                    g_time: time,
-                    mcq: i
-                },function (data) {
-                    move(pos);
-                    Dbox.show();
-                    right.show();
-                    whiteBG.show();
-                    disable();
-                });
-            }
-            else {
-                i++;
-                console.log("false");
+                    $.post('/update', {
+                        lvl: pos,
+                        scr: scoreVal,
+                        g_time: time,
+                        mcq: i
+                    }, function (data) {
+                        move(pos);
+                        Dbox.show();
+                        right.show();
+                        whiteBG.show();
+                    });
+                }
+                else {
+                    console.log("false");
 
-                let sc = parseInt(scoreVal);
-                sc--;
-                scoreVal = sc.toString();
-                score.text(scoreVal0 + scoreVal);
-                $.post('/update', {
-                    lvl: pos,
-                    scr: scoreVal,
-                    g_time: time,
-                    mcq: i
-                },function (data) {
-                    Dbox.show();
-                    wrong.show();
-                    whiteBG.show();
-                });
+                    let sc = parseInt(scoreVal);
+                    sc--;
+                    scoreVal = sc.toString();
+                    score.text(scoreVal0 + scoreVal);
+                    $.post('/update', {
+                        lvl: pos,
+                        scr: scoreVal,
+                        g_time: time,
+                        mcq: i
+                    }, function (data) {
+                        Dbox.show();
+                        wrong.show();
+                        whiteBG.show();
+                    });
+                }
             }
         }
     });
 
     next.click(function () {
-        btnIN.removeAttr('disabled');
+        working=false;
         right.hide();
         wrong.hide();
         Dbox.hide();
