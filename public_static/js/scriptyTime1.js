@@ -197,19 +197,19 @@ function move(moveto) {
             break;
         case 9:
             guy.css('margin-top',y[1]);
-            guy.css('marginLeft',x[0]);
+            guy.css('marginLeft',x[3]);
             break;
         case 10:
             guy.css('margin-top',y[1]);
-            guy.css('marginLeft',x[1]);
+            guy.css('marginLeft',x[2]);
             break;
         case 11:
             guy.css('margin-top',y[1]);
-            guy.css('marginLeft',x[2]);
+            guy.css('marginLeft',x[1]);
             break;
         case 12:
             guy.css('margin-top',y[1]);
-            guy.css('marginLeft',x[3]);
+            guy.css('marginLeft',x[0]);
             break;
         case 13:
             guy.css('margin-top',y[0]);
