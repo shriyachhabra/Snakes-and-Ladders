@@ -309,3 +309,15 @@ color: white;
 #ito{
     margin-left: 270px;
 }
+
+#instruc{
+    margin-left: 470px;
+    font-family: "Calibri";
+    font-size: 25px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: white;
+    color: white;
+    background-color: cadetblue;
+    cursor:pointer;
+}

@@ -6,7 +6,7 @@ let myVar=setInterval(timer,1000);
 let questions;
 let answers;
 let i=0;
-
+let j=0;// for answers (4 answers for one ques)
 let scoreVal;
 let pos;
 
@@ -22,11 +22,17 @@ $(function () {
     let wrong = $("#wrong");
     let guy = $("#guy");
     let score = $("#l3");
+    let instr=$("#instr");
     let answ = $("#ans");
-    // btnIN.hide();
+     // btnIN.hide();
+
 
 
     let scoreVal0 = score.text().substring(0, 7); //Score :
+
+    instr.click(function () {
+        window.open('Instructions.html')
+    })
 
     $.post('/detail',function (data) {
         pos = data.level;
@@ -37,13 +43,13 @@ $(function () {
         if(pos===17||i>=questions.length()){
             endgame();
         }
-        output1.text(questions[i]);
+
         btnIN.show();
         move(pos);
     });
     readQuesFile();
     readAnsFile();
-
+    output1.text(questions[i]);
     //to press the enter key to submit
     answ.keyup(function (event) {
         if (event.keyCode === 13) {
@@ -52,14 +58,23 @@ $(function () {
     });
 
     btnIN.click(function () {
-        let a = answers[i];
+
+        let a1=answers[j];
+        j++;
+        let a2=answers[j];
+        j++;
+        let a3=answers[j];
+        j++;
+        let a4=answers[j];
+        j++;
         let ans = document.getElementById("ans");
         if (i >= questions.length) {
             Dbox.hide();
         } else {
             var val = ans.value;
 
-            if (val.localeCompare(a) === 0) {
+            if (val.localeCompare(a1) == 0 ||val.localeCompare(a2) == 0||val.localeCompare(a3) == 0||val.localeCompare(a4) == 0 )
+            {
                 i++;
                 console.log("right");
                 let sc = parseInt(scoreVal);
@@ -95,7 +110,7 @@ $(function () {
                     mcq: i
                 },function (data) {
                     Dbox.show();
-                    right.show();
+                    wrong.show();
                     whiteBG.show();
                 });
             }
@@ -107,7 +122,7 @@ $(function () {
         wrong.hide();
         Dbox.hide();
         whiteBG.hide();
-        if(i%3===0){
+        if(pos%4===0){
         window.close();
         window.open('hackerrank.html');
             }
@@ -119,12 +134,14 @@ $(function () {
         }})
 });
 
+
+
 function readQuesFile() {
     let questions1=$.ajax({
         url: "Files/ques",
         async: false
     }).responseText;
-    questions=questions1.split(/\r?\n/);
+    questions=questions1.split("~~~");
     console.log(questions1);
 }
 

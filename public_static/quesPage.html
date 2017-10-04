@@ -18,7 +18,7 @@
 
 
 <div id="Dbox">
-    <div><button id="b">X</button></div>
+    <!--<div><button id="b">X</button></div>-->
     <div id="right">Right answer :)</div>
     <div id="wrong">Wrong answer :(</div>
     <div><img src="Images/guy.gif" id="guy"></div>
@@ -31,20 +31,25 @@
     <div id="ques">
 
         <div id="questNum">
-            <b>Q-</b> Find the output of the following code:
+            <b>  Solve the given question </b>
         </div><br>
-        <div id="output1" style="padding-left: 80px ;padding-top: 30px ">
+        <textarea readonly id="output1" style="padding-left: 80px ;padding-top: 30px ">
 
-        </div><br>
+        </textarea><br>
 
 
     </div>
-    <div style="margin-top: 60px;margin-left: 400px">
-        <div>
-            <img src="Images/hourglassT.gif" style="height: 60px">
+    <div style="margin-top: 10px;margin-left: 400px">
+        <div style="display: inline-flex; margin-left: -30px">
+            
+            <IMG src="Images/team.png" style="height: 45px;">
+            <label id="TN" >Crusaders</label>
+        </div>
+        <div style="margin-top: 50px;">
+            <img src="Images/hourglassT.gif" style="height: 60px ;margin-left: -50px">
         <label id="lbl">60:00</label>
         </div>
-        <br><br><br><br><br>
+        <br><br><br>
         <label id="l3">Score: 0</label>
     </div>
 </div>
@@ -54,6 +59,9 @@
 <div>
     <input type="text" id="ans" placeholder="Answer"><br><br><br>
     <button id="btnIN">SUBMIT</button>
+</div><br>
+<div>
+    <button id="instr">INSTRUCTIONS</button>
 </div>
 </body>
 </html>

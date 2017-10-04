@@ -1,9 +1,206 @@
-Q-1 what is the capital of the India?
-Q-2 Mahatma Gandhi is the father of the _______.
-Q-3 I am _____.
-Q-1 what is the capital of the India?
-Q-2 Mahatma Gandhi is the father of the _______.
-Q-3 I am _____.
-Q-1 what is the capital of the India?
-Q-2 Mahatma Gandhi is the father of the _______.
-Q-3 I am _____.
+A letter can be either pushed to a stack and later popped and printed, or printed directly. Which of the following will be the output if the input is the sequence of items A, B, C, D, E ?
+A) E D C A B
+B) C D E A B
+C) C D E B A
+D) A E B C D
+~~~
+Evaluate Postfix expression from given infix expression.
+A + B * (C + D)/ F + D * E
+A) ABCD+*F/DE*++
+B) ABCD+*F/+DE*+
+C) ABCD+*/F+DE*
+D) AB+CD*F/+DE*
+~~~
+
+What are the correct intermediate steps of the following data set when it is being sorted with the Insertion sort? 15,20,10,18
+A) 15,20,10,18 -- 10,15,20,18 -- 10,15,18,20 -- 10,15,18,20
+B) 15,18,10,20 -- 10,18,15,20 -- 10,15,18,20 -- 10,15,18,20
+C) 15,10,20,18 -- 15,10,18,20 -- 10,15,18,20
+D) 10, 20,15,18 -- 10,15,20,18 -- 10,15,18,20
+~~~
+
+Neeta has been given two different series of characters,such that when they come  together,they become a binary tree family.If '?' is the senior-most family member,deduce that notation, of the series' characters such that this root  comes first .
+  ! @ # $ % ^ & * ~ + ?
+  ! ^ @ $ # % ? & + ~ *
+~~~
+You are  a police inspector who is deployed in a case for investigating a terrorist attack,while the investigation you encountered 2 identical bombs on a 100th floor ,it may blast if dropped from the first floor or may not even blast if dropped from 100th floor.
+But now for testing the bombs on the same place ,lab chemists need to figure out the highest floor of a 100-storey building a bomb can be dropped without breaking. Now the question is how many drops the chemist need to make if they're  allowed to blast 2 bombs in the process.
+~~~
+
+Find the output of the following question
+#include <iostream.h>
+int add(int a, int b)
+{
+return a + b + 15;
+}
+int operation(int a, int b, int (*functocall)(int, int))
+{
+return (*functocall)(a, b);
+}
+int main()
+{
+int  x;
+int  (*plus)(int, int) = add;
+x = operation(15, 10, plus);
+cout << a;
+return 0;
+}
+A) 25
+B) 35
+C) 40
+D) 45
+~~~
+
+Teacher asked Shriya to solve a problem. She is given an unorganised array. It has an interesting property that every item in it is at most x distance from its place in organised array where x is a +ve integer smaller than size of array.
+Help Shriya to find out that which algorithm can be modified for organising this array and what is the time complexity?
+A) Quick Sort with time complexity O(xn)
+B) Heap Sort with time complexity O(nLogx)
+C) Quick Sort with time complexity O(xLogx)
+D) Heap Sort with time complexity O(xLogx)
+~~~
+
+Consider the C function given below. Assume that the array listA contains n (> 0) elements, sorted in ascending order.
+int ProcessArray(int *listA, int x, int n)
+{
+int i, j, k;
+i = 0;
+j = n-1;
+do
+{
+k = (i+j)/2;
+if (x <= listA[k])
+j = k-1;
+if (listA[k] <= x)
+i = k+1;
+}
+while (i <= j);
+if (listA[k] == x)
+return(k);
+else
+return -1;
+}
+Which one of the following statements about the function ProcessArray is CORRECT?
+A) It will run into an infinite loop when x is not in listA.
+B) It is an implementation of binary search.
+C) It will always find the maximum element in listA.
+D) It will return −1 even when x is present in listA.
+~~~
+
+In which of the following cases linked list implementaion of sparse matrices consumes same memory as a normal array
+A) 5 x 6 matrix with 9 non-zero entries
+B) 5 x 6 matrix with 8 non-zero entries
+C) 6 x 5 matrix with 8 non-zero entries
+D) 6 x 5 matrix with 9 non-zero entries
+~~~
+
+#include <stdio.h>
+int main ()
+{
+FILE * p;
+int c;
+int n = 0;
+p = fopen ("myfile.txt", "r");
+if (p == NULL)
+perror ("Error opening file");
+else
+{
+do {
+c = getc (p);
+if (c == '$')
+n++;
+} while (c != EOF);
+fclose (p);
+printf ("%d\n", n);
+}
+return 0;
+}
+A) Count of ‘$’ symbol
+B) Error opening file
+C) Any of the mentioned
+D) None of the mentioned
+~~~
+
+Rohit's favourite topic is pointers and he likes solving questions of it, but he got could not reach to the answer when he was asked to
+declare a function that receives a pointer to pointer to a pointer to a int and returns a pointer to a pointer to a pointer to a pointer to a int?
+A) int **fun(int***);
+B) int  *fun(int**);
+C) int fun(int***);
+D) int ****fun(int***);
+~~~
+
+Bored Shruti decided to play a game. She supposed that the letters of her name have probabilities 1/2, 1/4, 1/8, 1/16, 1/32, 1/32 respectively. What is the average length of Huffman codes?
+A) 3
+B) 2.1875
+C) 2.25
+D) 1.9375
+~~~
+
+A car has 4 tyres and 1 spare tyre. Each tyre can travel a maximum distance of 20000 kilometers before wearing off. What is the maximum distance the car can travel. You are allowed to change tyres (using the spare tyre) unlimited number of times.
+Note: All tyres are used upto their full strength.
+~~~
+
+4 friends Bob,John,Mark and George were selected as the representatives of Algorithmic Quest of their college.So they decided to map their names with one of the following algorithms,each one-to-one.Who does not fit in this group of representatives?
+A) George- Prim's Minimal Spanning Tree Algorithm
+B) Bob - Kruskal's Minimal Spanning Tree Algorithm
+C) John - Floyd-Warshall's All pair shortest path Algorithm
+D) Mark - Dijkstra's Minimal Spanning Tree Algorithm
+~~~
+
+
+Find the value of the postfix expression :- ABCD ^*-  (IF A = 150, B=10, C=2 D=3)
+A) 70
+B) 80
+C) 150
+D) 0
+~~~
+
+Friends are having a coding competition and they obtain the following complexities for the same coding question.
+Which of the given options provides the increasing order of asymptotic complexity of functions f1, f2, f3 and f4?
+ f1(n) = 2^n
+ f2(n) = n^(3/2)
+ f3(n) = nLogn
+ f4(n) = n^(Logn)
+A) f3, f2, f4, f1
+B) f3, f2, f1, f4
+C) f2, f3, f1, f4
+D) f2, f3, f4, f1
+~~~
+
+Consider an undirected random graph of eight vertices. The probability that there is an edge between a pair of vertices is 1/2. What is the expected number of unordered cycles of length three?
+A) 1/8
+B) 1
+C) 7
+D) 8
+~~~
+
+Rob has been given an array of eight integers and is directed to sort them using heapsort, he is got baffled in the middle and decided to recheck his answer from the beginning, after a sharp observation at each step he finally arrived at this heapify  (either maxheapify or minheapify) operations. The array now looks like this:
+16 14 15 10 12 27 28 Now help him in retrieving the number of  heapify operations performed on root of heap?
+A) 1
+B) 2
+C) 3 or 4
+D) 5 or 6
+~~~
+
+Shreya is keen on solving  mathematical  problems, so she picked 4 multi dimensional arrays, A1, A2, A3, and A4 be four matrices of dimensions 10 x 5, 5 x 20, 20 x 10, and 10 x 5, respectively.But then she remembered any mathematical problem is solved in the best if it involves minimum scalar operations. So help her solve A1A2A3A4.
+A) 1500
+B) 2000
+C) 500
+D) 100
+~~~
+
+A networking company uses a compression technique to encode the message before transmitting over the network. Suppose the message contains the following characters with their frequency:
+character   Frequency
+    a           5
+    b           9
+    c           12
+    d           13
+    e           16
+    f           45
+Run on IDE
+Note : Each character in input message takes 1 byte.
+If the compression technique used is Huffman Coding, how many bits will be saved in the message?
+A) 224
+B) 800
+C) 576
+D) 324
+

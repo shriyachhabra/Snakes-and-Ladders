@@ -91,18 +91,32 @@
     border-width: 2.5px;
     border-radius: 5px;
 
-    /*background:mintcream;*/
-    /*color:cadetblue;*/
-    /*border-radius: 5px;*/
-    /*border: solid;*/
-    position: relative;
+
+    position:absolute;
     padding-right: 10px;
     padding-left: 10px;
-    /*margin-left: 200px;*/
-    /*background: white;*/
     width: 75px;
     padding-top: 10px;
     height: 45px;
     font-size: xx-large;
 
+
+}
+
+#TN{
+
+    padding: 5px;
+    background-color: beige;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: orangered;
+    font-family: "Cooper Black";
+    color: orangered;
+    margin-top: 10px;
+    font-size: 18px;
+}
+#output1{
+    margin-top: -10px;
+    width: 415px;
+    height: 210px;
 }
