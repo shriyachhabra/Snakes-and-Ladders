@@ -147,7 +147,7 @@ $(function () {
 
 
     instruc.click(function () {
-        window.open('Instructions.html');
+        window.open('instr2.html');
     });
 
     var code = $("#text")[0];
