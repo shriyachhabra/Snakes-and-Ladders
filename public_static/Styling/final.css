@@ -1,0 +1,38 @@
+#snakeF{
+    height: 300px;
+    margin-left: 100px;
+    border-radius: 30px;
+    position: absolute;
+}
+#GO{
+    margin-top: 70px;
+    margin-left: 180px;
+    font-size: 70px;
+    color: orangered;
+    background-color: beige;
+   border-radius: 10px;
+    border-style: ridge;
+    border-color: orangered;
+    border-width: 5px;
+    height: 90px;
+    padding-top: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-family: "Bookman Old Style";
+}
+
+
+.tc{
+    font-size: 60px;
+    color: orangered;
+    font-family: "Pristina";
+
+}
+#finalScore{
+    font-size: 60px;
+    color: orangered;
+}
+#finalTime{
+    font-size: 60px;
+    color: orangered;
+}
