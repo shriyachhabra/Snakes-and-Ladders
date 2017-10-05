@@ -51,11 +51,9 @@ $(function () {
     readAnsFile();
     //to press the enter key to submit
     answ.keyup(function (event) {
-        if (event.keyCode === 13) {
+        if(event.keyCode===13)
             btnIN.click();
-        }
     });
-
     btnIN.click(function () {
         if(!working) {
             working=true;
@@ -64,12 +62,12 @@ $(function () {
             let a2 = answers[j+1];
             let a3 = answers[j+2];
             let a4 = answers[j+3];
-            let ans = document.getElementById("ans");
+
             if (i >= questions.length) {
                 Dbox.hide();
             } else {
                 i++;
-                var val = ans.value;
+                var val = answ.val();
                 if (val.localeCompare(a1) == 0 || val.localeCompare(a2) == 0 || val.localeCompare(a3) == 0 || val.localeCompare(a4) == 0) {
                     console.log("right");
                     let sc = parseInt(scoreVal);
@@ -110,10 +108,12 @@ $(function () {
                 }
             }
         }
+        answ.val("");
     });
 
     next.click(function () {
         working=false;
+
         right.hide();
         wrong.hide();
         Dbox.hide();
