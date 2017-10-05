@@ -7504,76 +7504,7 @@ let ques_inp=[
 ];
 
 let input_ques=[
-    "Naagaland has its own currency. They have N types of coins C1 to Cn. The problems with Naagaland is that they are poor in maths and thus their currency system is not that perfect. The serpent can use any number of coins of each value. If the serpent cannot express an amount with any set of coins, then it's called a boogie value.The serpent wants to know what is the minimum boogie value.If there are no such boogie value then print -1.\n" +
-    "Input Format: First line has an integer T, denoting the number of test cases.\n" +
-    "1st line of each testcase contains an single integer N denoting the number of different type of coins.\n" +
-    "2nd line of each testcase has $N$ integers C1,..., CN, denoting the different currency values.\n" +
-    "Output Format:\n" +
-    "Print N lines, each line having answer for respective testcase.\n" +
-    "Constraints:\n" +
-    "1 ≤ T ≤ 100\n" +
-    "1 ≤ N ≤ 10^4\n" +
-    "1 ≤ Ci ≤ 10^5\n" +
-    "Sample Input:\n" +
-    "1\n" +
-    "5\n" +
-    "1 2 3 4 5\n" +
-    "Sample Output: -1",
-    "We know that average of first N naturals number is the sum of first N natural numbers divided by N. Similarly Paverage of first N natural numbers is" +
-    "the product of first N natural numbers divided by N. Naagina wants to know that for a given integer N, is the Paverage of first N natural numbers modulo" +
-    "N is equal to N - 1 or not. Help Naagina solve the problem.\n" +
-    "Input Format:\n" +
-    "First line contains an integer T, denoting the number of testcases\n" +
-    "Each test case consists of a single integer N.\n" +
-    "Output Format:\n" +
-    "For each testcase output either YES or NO\n" +
-    "Constraints:\n" +
-    "1 ≤ T ≤ 10^5\n" +
-    "1 ≤ N ≤ 10^6\n" +
-    "Sample Input:\n" +
-    "2\n" +
-    "2\n" +
-    "4\n" +
-    "Sample Output:\n" +
-    "YES\n" +
-    "NO\n",
-    "Linda loves strings, especially strings that are palindromic. Snakiya on the other hand loves odd numbers, so both of them decided to combine their" +
-    "respective love for palindromic strings and odd numbers to create a question for the Clash Final.\n" +
-    "For a given integer N, find the Nth smallest odd " +
-    "length palindrome consisting of lowercase english alphabets.\n" +
-    "1) A string of length L(odd) comes before a string of length L+2\n." +
-    "2) N'th palindromes are " +
-    "sorted lexicographically.\n" +
-    "Having made the question, both of them realised they couldnt formulate a solution to solve it.\n" +
-    "Help them out by printing the" +
-    "N'th smallest odd length palindrome pertaining to the given conditions.\n" +
-    "Input format:\n" +
-    "First line contains the number of test cases, T.\n" +
-    "Each test case contains a single integer, N.\n" +
-    "Output format:\n" +
-    "Print the N'th smallest odd length palindrome pertaining to the given conditions.\n" +
-    "Constraints\n" +
-    "Subtask 1: (20 points)\n" +
-    "1<=T<=1000\n" +
-    "1<=N<=702\n" +
-    "Subtask\n" +
-    "2: (80 points)\n" +
-    "1<=T<=10000\n" +
-    "1<=N<=10^12\n" +
-    "Sample:\n" +
-    "Input:\n" +
-    "3\n" +
-    "1\n" +
-    "26\n" +
-    "27\n" +
-    "702\n" +
-    "703\n" +
-    "Output:\n" +
-    "a\n" +
-    "z\n" +
-    "aaa\n" +
-    "zzz\n" +
-    "aaaaa\n",
+    "","","",
     "Naagina lives in Naagaland which consists of N cities(numbered from 1 to N) that are connected by M bidirectional roads. The roads are designed" +
     "such that there is atmost only one road between any two city, although there may be more than one path between them. Each road had it's own cost Ci.\n" +
     "It is also known that there is atleast one path between any two city, i.e., Naagaland is completely connected. There is a war about to happen between" +
@@ -7629,7 +7560,7 @@ $(function () {
     disabler();
 
 
-    $.post('/detail',function (data,success) {
+    $.post('/detail',function (data) {
         score.text(data.score);
         time=data.timeLeft;
         ind=data.level;
