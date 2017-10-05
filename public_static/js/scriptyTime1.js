@@ -71,7 +71,7 @@ $(function () {
                 if (val.localeCompare(a1) == 0 || val.localeCompare(a2) == 0 || val.localeCompare(a3) == 0 || val.localeCompare(a4) == 0) {
                     console.log("right");
                     let sc = parseInt(scoreVal);
-                    sc++;
+                    sc+=2;
                     scoreVal = sc.toString();
                     score.text(scoreVal0 + scoreVal);
                     pos++;
@@ -138,7 +138,6 @@ function readQuesFile() {
         async: false
     }).responseText;
     questions=questions1.split("~~~");
-    console.log(questions1);
 }
 
 function readAnsFile() {
@@ -147,7 +146,6 @@ function readAnsFile() {
         async: false
     }).responseText;
     answers=answers1.split(/\r?\n/);
-    console.log(answers1);
 }
 
 function timer() {
