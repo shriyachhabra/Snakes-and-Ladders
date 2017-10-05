@@ -82,6 +82,10 @@ function update(body) {
     })
 }
 
+function results() {
+    return Todos.findAll();
+}
+
 module.exports = {
-    addTodo, getTodo , update
+    addTodo, getTodo , update ,results
 };
