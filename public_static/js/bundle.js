@@ -7625,8 +7625,9 @@ $(function () {
     let report = $('#report');
     let loader = $("#loader");
     let wholeQues = $('#wholeQues');
-
+    let instruc=$('#instruc');
     disabler();
+
 
     $.post('/detail',function (data,success) {
         score.text(data.score);
@@ -7635,6 +7636,11 @@ $(function () {
         wholeQues.text(input_ques[(ind/4)-1]);
         imcq=data.mcq;
         enabler();
+    });
+
+
+    instruc.click(function () {
+        window.open('instr2.html');
     });
 
     var code = $("#text")[0];
