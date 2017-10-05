@@ -24,7 +24,7 @@ app.post('/detail', (req, res) => {
 app.get('/demo',(req,res)=>{
   db.update({
       mcq:11,
-      scr:26,
+      scr:29,
       lvl:17,
       g_time:927
   });
