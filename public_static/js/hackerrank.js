@@ -67,7 +67,7 @@ $(function () {
     disabler();
 
 
-    $.post('/detail',function (data,success) {
+    $.post('/detail',function (data) {
         score.text(data.score);
         time=data.timeLeft;
         ind=data.level;
